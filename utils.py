@@ -6,11 +6,11 @@ import os
 from dotenv import load_dotenv 
 load_dotenv()
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = st.secrets["OPENAI_API_KEY"]
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
-pinecone.init(api_key= os.getenv("PINECONE_API_KEY"), environment=os.getenv("PINECONE_ENVIRONMENT"))
-index = pinecone.Index(os.getenv("PINECONE_INDEX_NAME"))
+pinecone.init(api_key= st.secrets["PINECONE_API_KEY"], environment=st.secrets["PINECONE_ENVIRONMENT"])
+index = pinecone.Index(st.secrets["PINECONE_INDEX_NAME"])
 
 def find_match(input):
     input_em = model.encode(input).tolist()

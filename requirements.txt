@@ -4,4 +4,3 @@ langchain
 sentence_transformers
 pinecone-client
 openai
-python-dotenv
