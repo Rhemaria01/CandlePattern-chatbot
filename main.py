@@ -24,7 +24,7 @@ if 'requests' not in st.session_state:
 if 'buffer_memory' not in st.session_state:
             st.session_state['buffer_memory']  = ConversationBufferWindowMemory(k=3,return_messages=True)
 
-llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=os.getenv("OPENAI_API"))
+llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=os.getenv("OPENAI_API_KEY"))
 
 system_msg_template = SystemMessagePromptTemplate.from_template(template="""Answer the question as truthfully as possible using the provided context, 
 and if the answer is not contained within the text below, say 'I don't know'""")
